@@ -11,6 +11,9 @@ app.listen(process.env.PORT, () => {
 
 app.use( express.static('public') );
 
+//Lectura y parseo del body
+app.use(express.json())
+
 //rutas
 app.use('/api/auth', require('./routes/auth'))
 

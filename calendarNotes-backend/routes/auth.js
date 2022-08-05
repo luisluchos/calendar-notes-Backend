@@ -6,12 +6,12 @@ host + /api/auth
 const express = require("express");
 const router = express.Router();
 
-const { createUser, login, renewUser } = require("../controllers/auth");
+const { createUser, login, renewToken } = require("../controllers/auth");
 
 router.post("/new", createUser);
 
 router.post("/", login);
 
-router.get("/renew", renewUser);
+router.get("/renew", renewToken);
 
 module.exports = router;

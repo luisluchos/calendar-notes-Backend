@@ -1,24 +1,32 @@
 const { response } = require("express");
 
 const createUser = (req, res = reponse) => {
-  res.json({
+  const { name, email, password } = req.body;
+  return res.json({
     ok: true,
     msg: "new",
+    name,
+    email,
+    password,
   });
 };
 
 const login = (req, res = reponse) => {
-  res.json({
+  const { email, password } = req.body;
+
+  return res.json({
     ok: true,
     msg: "login",
+    email,
+    password,
   });
 };
 
-const renewUser = (req, res = reponse) => {
-  res.json({
+const renewToken = (req, res = reponse) => {
+  return res.json({
     ok: true,
     msg: "renew",
   });
 };
 
-module.exports = { createUser, login, renewUser };
+module.exports = { createUser, login, renewToken };
