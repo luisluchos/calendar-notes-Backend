@@ -1,3 +1,4 @@
+const { application } = require('express')
 const express = require('express')
 require('dotenv').config()
 const app = express()
@@ -8,12 +9,8 @@ app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}`)
 })
 
+app.use( express.static('public') );
 
-//drirectory path
-app.use(express.static('public'))
+//rutas
+app.use('/api/auth', require('./routes/auth'))
 
-/* app.get('/', (req, res) => {
-  res.json({
-    oh:true
-  })
-}) */
